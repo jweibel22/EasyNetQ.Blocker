@@ -73,7 +73,7 @@ namespace Samples.Tests
             executor
                 .Do(() => messagePublisher.Publish(new ProductReceivedFromSupplier { ProductId = productId, NumberOfItems = 1 }))
                 .Return()
-                .When(ConfirmationMatcher<ProductReceivedFromSupplier>.Any(consumerServiceName).WaitFor(TimeSpan.FromSeconds(45)));
+                .When(ConfirmationMatcher<ProductReceivedFromSupplier>.Any(consumerServiceName).WaitFor(TimeSpan.FromSeconds(5)));
         }
 
         [Test(Description = "Remember to stock up on the item before purchasing!")]
