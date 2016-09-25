@@ -68,7 +68,11 @@ It's possible to assert that a given service received and processed a given mess
                 .Return()
                 .When(ConfirmationMatcher<PurchaseProduct>.Any("MyService").WaitFor(TimeSpan.FromSeconds(5)));
                 
-This will fail the NUnit test if the given service never received the message or if processing of the message failed. The error and stack trace from the service will be shown in the "failed" message  
+This will fail the NUnit test if the given service never received the message or if processing of the message failed. The error and stack trace from the service will be shown in the "failed" message.
+
+Please take note that the confirmation matchers won't work unless you include the nuget package EasyNetQ.Blocker in your services and register the Blocker functionality when setting up the bus
+
+            var bus = RabbitHutch.CreateBus("host=localhost", reg => reg.RegisterBlockerServices());
 
 It's possible to mock out a service. Declare the service as always with EasyNetQ:
 
