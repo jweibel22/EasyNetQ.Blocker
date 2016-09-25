@@ -13,8 +13,10 @@ First spin up a new bus and connect it with an ActionExecutor:
 
             bus = RabbitHutch.CreateBus("host=localhost");                
             executor = new ActionExecutor(new RabbitMessageBus(bus, "MyQueueName"));
+            
             //Throw NUnit's AssertionException tests when assertions fail           
             executor.OnFailedAssertionThrow<AssertionException>(); 
+            
 Next, execute an action and block until certain messages are detected
 
       executor
@@ -56,7 +58,7 @@ You can also add assertions on the messages that were detected
 
       Assert.That(customerBilled.Match.Price, Is.Equal.To(10));
 
-It's possible to assert that a given consumer received and processed a given message
+It's possible to assert that a given service received and processed a given message
 
             executor
                 .Do(() => bus.Publish(new PurchaseProduct { 
