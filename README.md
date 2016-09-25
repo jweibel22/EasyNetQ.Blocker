@@ -14,7 +14,7 @@ First spin up a new bus and connect it with an ActionExecutor:
             bus = RabbitHutch.CreateBus("host=localhost");                
             executor = new ActionExecutor(new RabbitMessageBus(bus, "MyQueueName"));
             
-            //Throw NUnit's AssertionException tests when assertions fail           
+            //Throw NUnit's AssertionException when assertions fail           
             executor.OnFailedAssertionThrow<AssertionException>(); 
             
 Next, execute an action and block until certain messages are detected
