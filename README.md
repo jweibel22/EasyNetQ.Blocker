@@ -74,9 +74,9 @@ It's possible to mock out a service. Declare the service as always with EasyNetQ
 
     public class Crm : IConsume<ProductPurchased>
     {
-        private readonly IMessagePublisher bus;
+        private readonly IMockBus bus;
 
-        public Crm(IMessagePublisher bus)
+        public Crm(IMockBus bus)
         {
             this.bus = bus;
         }
