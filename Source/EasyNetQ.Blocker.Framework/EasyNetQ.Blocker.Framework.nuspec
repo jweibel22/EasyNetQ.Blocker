@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>EasyNetQ.Blocker.Framework</id>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <title>EasyNetQ.Blocker.Framework</title>
     <authors>Jimmy Weibel Rasmussen
     </authors>
@@ -17,7 +17,7 @@
     <tags>
     </tags>
     <dependencies>
-      <dependency id="EasyNetQ.Blocker" version="0.0.1" />
+      <dependency id="EasyNetQ.Blocker" version="0.0.2-alpha" />
     </dependencies>
   </metadata>
 </package>
